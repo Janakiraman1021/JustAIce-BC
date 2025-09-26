@@ -1,7 +1,8 @@
-const express = require("express");
+import express from "express";
+import * as complaintController from "../controllers/complaintController.js";
+import * as authMiddleware from "../middleware/authMiddleware.js";
+
 const router = express.Router();
-const complaintController = require("../controllers/complaintController");
-const authMiddleware = require("../middleware/authMiddleware");
 
 // File a complaint (user)
 router.post("/file", authMiddleware.verifyUser, complaintController.fileComplaint);
@@ -9,4 +10,4 @@ router.post("/file", authMiddleware.verifyUser, complaintController.fileComplain
 // Get complaint by ID
 router.get("/:id", authMiddleware.verifyUserOrAdmin, complaintController.getComplaint);
 
-module.exports = router;
+export default router;

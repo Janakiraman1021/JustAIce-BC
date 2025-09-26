@@ -1,7 +1,8 @@
-const express = require("express");
+import express from "express";
+import * as officerController from "../controllers/officerController.js";
+import * as authMiddleware from "../middleware/authMiddleware.js";
+
 const router = express.Router();
-const officerController = require("../controllers/officerController");
-const authMiddleware = require("../middleware/authMiddleware");
 
 // Get assigned complaints
 router.get("/assigned", authMiddleware.verifyOfficer, officerController.getAssignedComplaints);
@@ -9,4 +10,4 @@ router.get("/assigned", authMiddleware.verifyOfficer, officerController.getAssig
 // Update complaint status + upload evidence
 router.post("/update/:id", authMiddleware.verifyOfficer, officerController.updateComplaint);
 
-module.exports = router;
+export default router;
