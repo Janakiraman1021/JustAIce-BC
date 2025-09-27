@@ -1,6 +1,5 @@
 {
-<<<<<<< HEAD
-  "name": "evid-bc",
+  "name": "JustAi-bc",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,24 +8,12 @@
     "start": "node index.js",
     "dev": "nodemon index.js",
     "deploy:avalanche": "node scripts/deploy.js"
-=======
-  "name": "backend",
-  "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js",
-    "dev": "nodemon app.js",
-    "deploy": "node deploy.js"
->>>>>>> 709a887c242aa33f539198820897e271352b36c3
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
   "dependencies": {
-<<<<<<< HEAD
     "axios": "^1.10.0",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
@@ -39,15 +26,6 @@
     "mongodb": "^6.17.0",
     "mongoose": "^8.16.0",
     "uuid": "^11.1.0"
-=======
-    "body-parser": "^2.2.0",
-    "cors": "^2.8.5",
-    "dotenv": "^17.2.2",
-    "ethers": "^6.15.0",
-    "express": "^5.1.0",
-    "jsonwebtoken": "^9.0.2",
-    "web3.storage": "^4.5.5"
->>>>>>> 709a887c242aa33f539198820897e271352b36c3
   },
   "devDependencies": {
     "nodemon": "^3.1.10"

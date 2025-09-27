@@ -4,7 +4,8 @@ import {
   fileComplaint,
   getComplaintById,
   getComplaintsByUserId,
-  assignComplaintToPolice
+  assignComplaintToPolice,
+  getAllComplaints
 } from '../controller/complaintController.js';
 import { protect, verifyToken, verifyAdmin } from '../middlewares/authMiddleware.js';
 import Complaint from '../models/Complaint.js';
@@ -53,6 +54,8 @@ router.get('/ping', (req, res) => {
 
 router.get('/assigned:user_id', getAssignedComplaints);
 // router.get('/assigned/:userId', verifyToken, getAssignedComplaints);
+
+router.get('/getall',getAllComplaints);
 =======
 import express from "express";
 import * as complaintController from "../controllers/complaintController.js";
