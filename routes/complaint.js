@@ -7,7 +7,7 @@ const router = express.Router();
 // File a complaint (user)
 router.post("/file", authMiddleware.verifyUser, complaintController.fileComplaint);
 
-// Get complaint by ID
-router.get("/:id", authMiddleware.verifyUserOrAdmin, complaintController.getComplaint);
+// Get complaint by CID
+router.get("/:cid", authMiddleware.verifyUserOrAdmin, complaintController.getComplaintByCID);
 
 export default router;
