@@ -10,6 +10,10 @@ router.post("/assign/:id", authMiddleware.verifyAdmin, adminController.assignCom
 // Reward top officer
 router.post("/reward", authMiddleware.verifyAdmin, adminController.rewardOfficer);
 
+
+// Re-upload a local fallback file to web3.storage (admin only)
+router.post("/reupload", authMiddleware.verifyAdmin, adminController.reuploadLocalComplaint);
+
 // Get all users/officers/complaints
 router.get("/dashboard", authMiddleware.verifyAdmin, adminController.getDashboard);
 
