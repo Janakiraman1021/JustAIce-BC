@@ -2,6 +2,8 @@ import * as complaintController from "../controllers/complaintController.js";
 import { stakingContract, complaintContract } from "../services/blockchain.js";
 import { uploadJSON } from "../services/filecoin.js";
 import { STATUS } from "../utils/constants.js";
+import fs from "fs";
+import path from "path";
 
 // File a new complaint
 export const fileComplaint = async (req, res) => {
@@ -10,9 +12,9 @@ export const fileComplaint = async (req, res) => {
     const reporter = req.user.walletAddress;
 
     // Check if user has staked
-    const staked = await stakingContract.hasStaked(reporter);
-    if (!staked)
-      return res.status(400).json({ message: "User must stake 0.001 ETH first" });
+    // const staked = await stakingContract.hasStaked(reporter);
+    // if (!staked)
+    //   return res.status(400).json({ message: "User must stake 0.001 ETH first" });
 
     // Prepare complaint JSON
     const complaintJSON = {
@@ -48,6 +50,17 @@ export const fileComplaint = async (req, res) => {
 export const getComplaintByCID = async (req, res) => {
   try {
     const { cid } = req.params;
+    // If CID is a local fallback token, read from local uploads
+    if (typeof cid === 'string' && cid.startsWith('LOCAL::')) {
+      const localName = cid.replace('LOCAL::', '');
+      const filePath = path.join(process.cwd(), 'backend', 'uploads', localName);
+      if (!fs.existsSync(filePath)) {
+        return res.status(404).json({ error: 'Complaint not found (local file missing)' });
+      }
+      const contents = fs.readFileSync(filePath, 'utf8');
+      const complaint = JSON.parse(contents);
+      return res.json(complaint);
+    }
     // Get complaint details from blockchain
     const complaint = await complaintContract.getComplaintByCID(cid);
     if (!complaint) {

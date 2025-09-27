@@ -1,0 +1,22 @@
+{
+  "title": "Noise Pollution from Construction Site",
+  "description": "There is excessive noise from the construction site on Main Street that continues late into the night, violating noise ordinances and disturbing residents.",
+  "type": "noise_complaint",
+  "location": {
+    "address": "123 Main Street, Downtown",
+    "coordinates": {
+      "latitude": 40.7128,
+      "longitude": -74.006
+    }
+  },
+  "date": "2025-09-27T14:30:00.000Z",
+  "tags": [
+    "noise",
+    "construction",
+    "residential",
+    "ordinance_violation"
+  ],
+  "reporter": "0x7c4b569a2a25998c8c1919e784f5a0eb5bcaacf6",
+  "status": 0,
+  "submittedAt": "2025-09-27T07:57:53.567Z"
+}

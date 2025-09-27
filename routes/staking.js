@@ -10,7 +10,7 @@ router.get("/info", authMiddleware.verifyUser, stakingController.stakeETH);
 // Check if user has staked
 router.get("/status", authMiddleware.verifyUser, stakingController.checkStakingStatus);
 
-// Get required stake amount (public endpoint)
+// Get required stake amount (public endpoint)  
 router.get("/required", stakingController.getRequiredStake);
 
 export default router;
