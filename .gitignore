@@ -1,0 +1,14 @@
+<<<<<<< HEAD
+node_modules/
+
+package-lock.json
+=======
+# Ignore node_modules folder
+node_modules/
+
+# Ignore package-lock.json
+package-lock.json
+
+.env
+~/
+>>>>>>> 709a887c242aa33f539198820897e271352b36c3
