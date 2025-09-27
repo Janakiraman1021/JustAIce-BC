@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import express from 'express';
 import {
   fileComplaint,
@@ -52,5 +53,18 @@ router.get('/ping', (req, res) => {
 
 router.get('/assigned:user_id', getAssignedComplaints);
 // router.get('/assigned/:userId', verifyToken, getAssignedComplaints);
+=======
+import express from "express";
+import * as complaintController from "../controllers/complaintController.js";
+import * as authMiddleware from "../middleware/authMiddleware.js";
+
+const router = express.Router();
+
+// File a complaint (user)
+router.post("/file", authMiddleware.verifyUser, complaintController.fileComplaint);
+
+// Get complaint by CID
+router.get("/:cid", authMiddleware.verifyUserOrAdmin, complaintController.getComplaintByCID);
+>>>>>>> 709a887c242aa33f539198820897e271352b36c3
 
 export default router;
