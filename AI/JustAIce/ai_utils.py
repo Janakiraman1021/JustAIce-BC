@@ -15,7 +15,7 @@ except Exception as e:
     groq_available = False
 
 
-ADMIN_COMPLAINTS_API = os.environ.get("ADMIN_COMPLAINTS_API", "http://localhost:5000/api/complaints/admin-view-comp")
+ADMIN_COMPLAINTS_API = os.environ.get("ADMIN_COMPLAINTS_API", "https://blockevid3-0-bc.onrender.com/api/complaints/admin-view-comp")
 
 
 def fetch_complaint_from_api(identifier: Optional[str] = None):

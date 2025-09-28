@@ -7,7 +7,7 @@ async function getAssignedComplaints(userId) {
     }
 
     // API endpoint URL
-    const apiUrl = `http://localhost:5000/api/complaints/assigned?user_id=${userId}`;
+    const apiUrl = `https://blockevid3-0-bc.onrender.com/api/complaints/assigned?user_id=${userId}`;
     
     // Make API call
     const response = await fetch(apiUrl, {
@@ -44,7 +44,7 @@ async function getAssignedComplaintsDetailed(userId) {
       };
     }
 
-    const apiUrl = `http://localhost:5000/api/complaints/assigned?user_id=${userId}`;
+    const apiUrl = `https://blockevid3-0-bc.onrender.com/api/complaints/assigned?user_id=${userId}`;
     
     const response = await fetch(apiUrl, {
       method: 'GET',
